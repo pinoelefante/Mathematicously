@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp" >
+    
+    <LinearLayout 
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+        
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/chkBT"
+            android:enabled="false" />
+            
+        <it.pinoelefante.mycustomviews.PButton 
+            android:id="@+id/selectBluetooth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="attivaBT"/>
+        
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/chkWifi"
+            android:enabled="false" 
+            android:layout_marginLeft="10dp"/>
+        
+        <it.pinoelefante.mycustomviews.PButton 
+            android:id="@+id/selectWifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="attivaWifi"/>
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+        
+        <it.pinoelefante.mycustomviews.PButton
+	        android:id="@+id/multi_crea_partita"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:onClick="hostGame"
+	        android:text="@string/multi_host" />
+
+    	<it.pinoelefante.mycustomviews.PButton
+    	    android:id="@+id/multi_join_partita"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:layout_marginTop="10dp"
+    	    android:onClick="joinGame"
+    	    android:text="@string/multi_guest" />
+        
+    </LinearLayout>
+    
+
+</LinearLayout>

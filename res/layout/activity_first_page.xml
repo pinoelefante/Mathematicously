@@ -1,0 +1,94 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/first_page_scroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <it.pinoelefante.mycustomviews.PLinearLayout
+        android:id="@+id/first_page_bg_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center" >
+
+            <it.pinoelefante.mycustomviews.PButton
+                android:id="@+id/btn_single_player"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/style_player1"
+                android:onClick="goToNuovaPartita" />
+
+            <it.pinoelefante.mycustomviews.PButton
+                android:id="@+id/btn_multiplayer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/style_player2"
+                android:onClick="goToMultiplayer" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp" >
+
+            <it.pinoelefante.mycustomviews.PButton
+                android:id="@+id/btn_stat_prev"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:onClick="prevStat"
+                android:background="@drawable/style_arrow_back" />
+
+            <it.pinoelefante.mycustomviews.PButton
+                android:id="@+id/btn_stat_next"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:onClick="nextStat"
+                android:background="@drawable/style_arrow_next" />
+			
+            <LinearLayout 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" 
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true" >
+                
+                <TextView
+                android:id="@+id/stat_nome_tabella"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center" />
+                
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <it.pinoelefante.mycustomviews.PLinearLayout
+            android:id="@+id/stats_lay"
+            android:layout_width="match_parent"
+            android:layout_height="278dp"
+            android:layout_weight="0.50"
+            android:orientation="vertical" >
+        </it.pinoelefante.mycustomviews.PLinearLayout>
+
+        <it.pinoelefante.mycustomviews.PButton
+            android:id="@+id/btn_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/about" 
+            android:onClick="goToInfo"/>
+
+    </it.pinoelefante.mycustomviews.PLinearLayout>
+
+</ScrollView>

@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}"
+    android:padding="10dp" >
+	
+	<TextView
+	    android:id="@+id/TitleBTS"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentTop="true"
+	    android:layout_centerHorizontal="true"
+	    android:gravity="center"
+	    android:text="@string/lobby_bt"
+	    android:textSize="24sp" />
+
+    <it.pinoelefante.mycustomviews.PButton
+        android:id="@+id/SL_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/style_arrow_back"
+        android:onClick="back" />
+
+    <LinearLayout
+        android:id="@+id/containerNickBT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/TitleBTS"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:gravity="center" >
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/scegliNickname" />
+        <EditText 
+            android:id="@+id/NicknameBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_nickname" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/startServerBT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/containerNickBT"
+        android:layout_centerHorizontal="true"
+        android:text="@string/start_server"
+        android:onClick="startServer"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/statoConnessioneBT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/startServerBT"
+        android:layout_centerHorizontal="true"
+        android:text="@string/attesa_connessione"
+        android:visibility="invisible" />
+
+</RelativeLayout>

@@ -1,0 +1,77 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}"
+    android:padding="10dp" >
+
+    <TextView
+        android:id="@+id/titolo_lobby_aftergame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Lobby Aftergame"
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/lobby_aftergame_messaggio_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/titolo_lobby_aftergame"
+        android:layout_marginTop="30dp"
+        android:text="Vuoi giocare ancora?"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:id="@+id/lobby_container_risposte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lobby_aftergame_messaggio_tv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center" >
+
+        <it.pinoelefante.mycustomviews.PImageView
+            android:id="@+id/aftergame_risp_server"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/lobby_empty"
+            android:contentDescription="" />
+
+        <it.pinoelefante.mycustomviews.PImageView
+            android:id="@+id/aftergame_risp_client"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/lobby_empty"
+            android:contentDescription="" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lobby_container_risposte"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center" >
+
+        <it.pinoelefante.mycustomviews.PButton
+            android:id="@+id/lobby_aftergame_si"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="lobby_yes"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/style_bottone_true" />
+
+        <it.pinoelefante.mycustomviews.PButton
+            android:id="@+id/lobby_aftergame_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="lobby_no"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/style_bottone_false" />
+
+    </LinearLayout>
+
+</RelativeLayout>

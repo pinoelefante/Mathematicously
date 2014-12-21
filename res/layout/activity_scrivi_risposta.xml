@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_scrivi_risposte"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <ProgressBar
+        android:id="@+id/progressBarSR"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" >
+
+        <it.pinoelefante.mycustomviews.PButton
+            android:id="@+id/game_domanda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/game_container_tasti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearLayout1"
+        android:layout_alignRight="@+id/linearLayout1"
+        android:layout_below="@+id/linearLayout1"
+        android:orientation="vertical" 
+        android:layout_marginTop="20dp" >
+
+        <it.pinoelefante.mycustomviews.PRelativeLayout
+            android:id="@+id/PRelativeLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <EditText
+                android:id="@+id/game_scrivi_risposta_risposta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:ems="5"
+                android:gravity="center_vertical"
+                android:inputType="number"
+                android:nextFocusDown="@id/game_scrivi_risposta_risposta"
+                android:nextFocusLeft="@id/game_scrivi_risposta_risposta"
+                android:nextFocusRight="@id/game_scrivi_risposta_risposta"
+                android:nextFocusUp="@id/game_scrivi_risposta_risposta"
+                android:digits="0123456789-"
+                android:textAlignment="center" >
+
+                <requestFocus />
+            </EditText>
+
+            <TextView
+                android:id="@+id/label_scrivi_risposta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/game_scrivi_risposta_risposta"
+                android:text="@string/label_scrivi_risposta_risposta" />
+
+            <it.pinoelefante.mycustomviews.PButton
+                android:id="@+id/game_scrivi_risposta_invio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/game_scrivi_risposta_risposta"
+                android:onClick="click_Enter"
+                android:text="" />
+
+        </it.pinoelefante.mycustomviews.PRelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/progressBarSR"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/gioco_overlay_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</RelativeLayout>

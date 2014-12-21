@@ -1,0 +1,81 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}"
+    android:padding="10dp" >
+	
+	<TextView 
+	    android:id="@+id/TitleWFS"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:gravity="center"
+	    android:layout_alignParentTop="true"
+	    android:layout_centerHorizontal="true"
+		android:text="@string/lobby_wifi"
+		android:textSize="24sp" />
+	<LinearLayout
+	    android:id="@+id/containerNicknameWF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/TitleWFS"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="10dp" >
+        
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/scegliNickname"/>
+	    
+	    <EditText 
+	        android:id="@+id/NicknameWF"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:hint="@string/hint_nickname"/>
+	    
+	    <TextView
+            android:id="@+id/IpDaComunicare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ip_address" />
+
+        <EditText
+            android:id="@+id/ServerLobbyIpAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:editable="false"
+            android:hint="@string/hint_wifi_address"
+            android:inputType="text" />
+    </LinearLayout>
+    
+    <it.pinoelefante.mycustomviews.PButton
+        android:id="@+id/startServerWF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/containerNicknameWF"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="@string/start_server"
+        android:onClick="startServer" />
+
+    <it.pinoelefante.mycustomviews.PButton
+        android:id="@+id/backWFS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/style_arrow_back"
+        android:onClick="back" />
+
+    <TextView
+        android:id="@+id/statoConnessioneWifi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/startServerWF"
+        android:layout_centerHorizontal="true"
+        android:text="@string/attesa_connessione"
+        android:visibility="invisible" />
+
+</RelativeLayout>

@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sfondo"
+    android:padding="10dp"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <ProgressBar
+        android:id="@+id/progressBar_true_false"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true" />
+    
+    <it.pinoelefante.mycustomviews.PButton
+        android:id="@+id/true_false_domanda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true" />
+    
+    <LinearLayout
+        android:id="@+id/game_container_tasti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/true_false_domanda"
+        android:layout_above="@id/progressBar_true_false"
+        android:orientation="vertical" 
+        android:layout_marginTop="20dp" >
+
+        <it.pinoelefante.mycustomviews.PRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <it.pinoelefante.mycustomviews.PButton
+                android:id="@+id/risposta_true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/style_bottone_normale"
+                android:onClick="clickResponse" />
+
+            <it.pinoelefante.mycustomviews.PButton
+                android:id="@+id/risposta_false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/style_bottone_normale"
+                android:onClick="clickResponse" />
+
+        </it.pinoelefante.mycustomviews.PRelativeLayout>
+	</LinearLayout>
+
+</RelativeLayout>

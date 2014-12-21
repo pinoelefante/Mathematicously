@@ -1,0 +1,72 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ScrollView1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp" >
+
+        <Button
+            android:id="@+id/btn_gioco_truefalse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:onClick="scegliGioco"
+            android:text="@string/game_truefalse" />
+
+        <Button
+            android:id="@+id/btn_gioco_sfida_contro_il_tempo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:onClick="scegliGioco"
+            android:text="@string/game_sfida_contro_il_tempo" />
+
+        <Button
+            android:id="@+id/btn_gioco_quiz_show"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:onClick="scegliGioco"
+            android:text="@string/game_quiz_show" />
+
+        <Button
+            android:id="@+id/btn_gioco_riflessi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:onClick="scegliGioco"
+            android:text="@string/game_riflessi" />
+
+        <Button
+            android:id="@+id/btn_gioco_memory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:onClick="scegliGioco"
+            android:text="@string/game_memory" />
+
+        <Button
+            android:id="@+id/btn_gioco_scrivi_la_risposta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:onClick="scegliGioco"
+            android:text="@string/game_scrivi_la_risposta" />
+
+        <Button
+            android:id="@+id/btn_gioco_endurance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:onClick="scegliGioco"
+            android:text="@string/game_endurance" />
+
+    </LinearLayout>
+
+</ScrollView>

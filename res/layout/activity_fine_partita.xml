@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context="${relativePackage}.${activityClass}" >
+	
+    <it.pinoelefante.mycustomviews.PButton
+        android:id="@+id/tornaFirstPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/style_arrow_back" />
+    
+	<RelativeLayout
+        android:id="@+id/container_nome_gioco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true" 
+        android:layout_marginTop="10dp" >
+
+        <TextView
+            android:id="@+id/fine_nomeModalitaGioco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center" />
+
+    </RelativeLayout>
+
+    <RatingBar
+        android:id="@+id/fine_stelline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/container_nome_gioco"
+        android:layout_marginTop="20dp"
+        android:isIndicator="true"
+        android:max="@integer/numero_stelle"
+        android:numStars="@integer/numero_stelle" />
+    
+    <TextView
+        android:id="@+id/fine_partita_punti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fine_stelline"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+    
+    <TextView
+        android:id="@+id/fine_partita_difficolta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fine_partita_punti"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp" />
+    
+    <LinearLayout
+        android:id="@+id/container_share_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/tornaFirstPage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp" 
+        android:gravity="center" >
+
+        <TextView
+        android:id="@+id/shareOn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/share_on" 
+        android:layout_marginRight="5dp"/>
+        
+        <it.pinoelefante.mycustomviews.PButton
+        android:id="@+id/facebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="facebookShare" 
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
+        
+        <it.pinoelefante.mycustomviews.PButton
+        android:id="@+id/twitter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="twitta" 
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp" />
+    </LinearLayout>
+</RelativeLayout>

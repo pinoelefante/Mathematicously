@@ -1,0 +1,117 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context="${relativePackage}.${activityClass}" >
+	<RelativeLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content">
+	    
+	    <LinearLayout
+	        android:id="@+id/about_container_logo"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" 
+	        android:orientation="vertical"
+	        android:layout_alignParentTop="true"
+		    android:layout_centerHorizontal="true" 
+		    android:gravity="center">
+	        
+		    <ImageView
+		        android:id="@+id/about_logo"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:src="@drawable/logo" 
+		        android:contentDescription=""/>
+		
+		    <TextView
+		        android:id="@+id/about_logo_text"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="10dp" />
+		    
+	    </LinearLayout>
+	
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentBottom="true"
+	        android:layout_below="@id/about_container_logo"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="30dp"
+	        android:orientation="vertical" >
+	
+	       	<RelativeLayout
+	       	    android:layout_width="match_parent"
+	       	    android:layout_height="wrap_content"
+	       	    android:layout_marginBottom="5dp" >
+	
+	           	<it.pinoelefante.mycustomviews.PButton
+	           	    android:id="@+id/facebook_page"
+	           	    android:layout_width="wrap_content"
+	           	    android:layout_height="wrap_content"
+	           	    android:layout_centerInParent="true"
+	           	    android:layout_marginLeft="5dp"
+	           	    android:layout_marginRight="5dp" 
+	           	    android:onClick="facebook"/>
+	           	   
+	           	<TextView
+	           	    android:id="@+id/about_follow_tv"
+	           	    android:layout_width="wrap_content"
+	           	    android:layout_height="wrap_content"
+	           	    android:layout_alignBaseline="@id/facebook_page"
+	           	    android:layout_marginRight="5dp"
+	           	    android:layout_toLeftOf="@id/facebook_page"
+	           	    android:text="@string/follow" />
+	           	
+	           	<it.pinoelefante.mycustomviews.PButton
+	           	    android:id="@+id/twitter_page"
+	           	    android:layout_width="wrap_content"
+	           	    android:layout_height="wrap_content"
+	           	    android:layout_alignBaseline="@id/facebook_page"
+	           	    android:layout_marginLeft="5dp"
+	           	    android:layout_marginRight="5dp"
+	           	    android:layout_toRightOf="@id/facebook_page" 
+	           	    android:onClick="twitter" />
+	
+	        </RelativeLayout>
+	        
+	       	<RelativeLayout
+	       	    android:layout_width="match_parent"
+	       	    android:layout_height="wrap_content"
+	       	    android:layout_marginBottom="5dp"
+	       	    android:layout_marginTop="5dp" >
+	
+	           	<it.pinoelefante.mycustomviews.PButton
+	           	    android:id="@+id/play_store"
+	           	    android:layout_width="wrap_content"
+	           	    android:layout_height="wrap_content"
+	           	    android:layout_centerInParent="true"
+	           	    android:layout_marginLeft="5dp"
+	           	    android:layout_marginRight="5dp"
+	           	    android:onClick="playstore" />
+	           	   
+	           	<TextView
+	           	    android:id="@+id/about_available_tv"
+	           	    android:layout_width="wrap_content"
+	           	    android:layout_height="wrap_content"
+	           	    android:layout_alignBaseline="@id/play_store"
+	           	    android:layout_marginRight="5dp"
+	           	    android:layout_toLeftOf="@id/play_store"
+	           	    android:text="@string/available" />
+	           	
+	           	<it.pinoelefante.mycustomviews.PButton
+	           	    android:id="@+id/amazon_apps"
+	           	    android:layout_width="wrap_content"
+	           	    android:layout_height="wrap_content"
+	           	    android:layout_alignBaseline="@id/play_store"
+	           	    android:layout_marginLeft="5dp"
+	           	    android:layout_marginRight="5dp"
+	           	    android:layout_toRightOf="@id/play_store"
+	           	    android:onClick="amazon" />
+	
+	        </RelativeLayout>
+	
+	    </LinearLayout>
+	</RelativeLayout>
+</ScrollView>
