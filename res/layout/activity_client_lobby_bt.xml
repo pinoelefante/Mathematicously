@@ -6,7 +6,7 @@
     tools:context="${relativePackage}.${activityClass}" >
 
     <TextView
-        android:id="@+id/CL_titolo"
+        android:id="@+id/titolo_BTC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -18,7 +18,7 @@
         android:id="@+id/cont_nick_bluetooth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/CL_titolo"
+        android:layout_below="@id/titolo_BTC"
         android:layout_marginTop="5dp"
         android:orientation="horizontal">
         
@@ -28,14 +28,14 @@
             android:text="@string/scegliNickname" />
         
         <EditText 
-            android:id="@+id/CL_Nickname"
+            android:id="@+id/Nickname_BTC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_nickname" />
     </LinearLayout>
 
     <Button
-        android:id="@+id/CL_back"
+        android:id="@+id/back_BTC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -47,7 +47,7 @@
 		android:id="@+id/bt_list_devices"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/CL_back"
+        android:layout_above="@id/back_BTC"
         android:layout_below="@id/cont_nick_bluetooth" />
         
 </RelativeLayout>

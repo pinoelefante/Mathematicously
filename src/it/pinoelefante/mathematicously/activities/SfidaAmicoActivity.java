@@ -41,6 +41,7 @@ public class SfidaAmicoActivity extends PActivity {
 		wifi = (CheckBox) findViewById(R.id.chkWifi);
 		btnBT = (PButton) findViewById(R.id.selectBluetooth);
 		btnBT.setBackgroundResource(R.drawable.style_bluetooth);
+		//btnBT.setVisibility(View.INVISIBLE); //impossibilità di testare la funzionalità
 		btnWifi = (PButton) findViewById(R.id.selectWifi);
 		btnWifi.setBackgroundResource(R.drawable.style_wifi);
 		if(bluetoothAdapter==null)

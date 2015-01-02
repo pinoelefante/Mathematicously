@@ -46,6 +46,7 @@ public class ServerBluetooth extends Server {
 
 	@Override
 	public void stopServer() {
+		getCommunication().disconnect(false);
 		try {
 			if(ssocket!=null)
 				ssocket.close();

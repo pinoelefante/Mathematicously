@@ -63,7 +63,7 @@ public class ClientLobbyWiFi extends PActivity {
 			dimButt = calcolaDimensioniH(10);
 
 		nicknameET = (EditText) findViewById(R.id.nicknameWFC);
-		nickname = prefs.getString("nickname", "Client");
+		nickname = prefs.getString("nickname", "");
 		nicknameET.setText(nickname);
 
 		ipaddressET = (EditText) findViewById(R.id.ipaddressWFC);
