@@ -91,12 +91,13 @@ public class ClientLobbyBluetooth extends PActivity {
 		onBackPressed();
 	}
 	private void avviaDispositivoBT(){
-		registraBroadcast();
 		IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
 		registerReceiver(btFoundDevice, filter);
 		if(!btAdp.isEnabled()){
 			abilitaBluetooth();
 		}
+		registraBroadcast();
+		btAdp.startDiscovery();
 	}
 	private void abilitaBluetooth() {
 		Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
@@ -123,8 +124,6 @@ public class ClientLobbyBluetooth extends PActivity {
 					case -1:
 						break;
 					case BluetoothAdapter.STATE_ON:
-						Toast.makeText(getApplicationContext(), "operazione start discovery", Toast.LENGTH_SHORT).show();
-						btAdp.startDiscovery();
 						break;
 					case BluetoothAdapter.STATE_OFF:
 						Toast.makeText(getApplicationContext(), "bluetooth off", Toast.LENGTH_SHORT).show();
@@ -260,7 +259,11 @@ public class ClientLobbyBluetooth extends PActivity {
 	    }
 	};
 	protected void onDestroy() {
+		ServerCommunication comm = ServerCommunication.getInstance();
+		if(comm!=null)
+			comm.forceDisconnect();
 		unregisterReceiver(btFoundDevice);
+		super.onDestroy();
 	};
 	private void connectToMac(final String mac_address){
 		nickname = nickname_et.getText().toString();
