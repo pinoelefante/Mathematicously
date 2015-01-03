@@ -5,7 +5,7 @@
     android:background="@drawable/sfondo"
     android:padding="10dp"
     tools:context="${relativePackage}.${activityClass}" >
-
+	
     <ProgressBar
         android:id="@+id/progressBar_true_false"
         style="?android:attr/progressBarStyleHorizontal"
@@ -22,6 +22,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true" />
+    
     
     <LinearLayout
         android:id="@+id/game_container_tasti"
@@ -52,8 +53,12 @@
                 android:layout_centerVertical="true"
                 android:background="@drawable/style_bottone_normale"
                 android:onClick="clickResponse" />
-
         </it.pinoelefante.mycustomviews.PRelativeLayout>
 	</LinearLayout>
-
+	<TextView 
+	    android:id="@+id/overlayTF"
+		android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:gravity="center_horizontal"
+	    android:layout_below="@id/game_container_tasti"/>
 </RelativeLayout>

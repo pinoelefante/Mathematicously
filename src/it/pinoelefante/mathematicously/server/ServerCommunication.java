@@ -16,7 +16,7 @@ public class ServerCommunication extends Thread {
 	private final static int   TIMEOUT_READ = 30000;
 	private Socket			 wifi_socket;
 	private BluetoothSocket bt_socket;
-	private BufferedReader	 in;
+	private BufferedReader	 in_buffered;
 	private InputStream		input;
 	private OutputStream	   out;
 	private PartialListenerContainer listeners;
@@ -50,7 +50,7 @@ public class ServerCommunication extends Thread {
 		super();
 		bt_socket = sock;
 		input = bt_socket.getInputStream();
-		in = new BufferedReader(new InputStreamReader(input));
+		in_buffered = new BufferedReader(new InputStreamReader(input));
 		out = bt_socket.getOutputStream();
 		listeners = new PartialListenerContainer();
 		listeners.addListener(l);
@@ -68,7 +68,7 @@ public class ServerCommunication extends Thread {
 		listeners.addListener(list.getListeners());
 		wifi_socket = sock;
 		input = wifi_socket.getInputStream();
-		in = new BufferedReader(new InputStreamReader(input));
+		in_buffered = new BufferedReader(new InputStreamReader(input));
 		out = wifi_socket.getOutputStream();
 		wifi_socket.setKeepAlive(true);
 		wifi_socket.setSoTimeout(TIMEOUT_READ);
@@ -82,7 +82,7 @@ public class ServerCommunication extends Thread {
 				wifi_socket.setKeepAlive(true);
 				wifi_socket.setSoTimeout(TIMEOUT_READ);
 				input = wifi_socket.getInputStream();
-				in = new BufferedReader(new InputStreamReader(input));
+				in_buffered = new BufferedReader(new InputStreamReader(input));
 				out = wifi_socket.getOutputStream();
 			}
 			catch (IOException e) {
@@ -91,7 +91,7 @@ public class ServerCommunication extends Thread {
 			}
 		}
 		listeners.eseguiListener("clientConnected");
-		while(in!=null){
+		while(in_buffered!=null){
 			try {
 				String line = read();
 				if(line!=null){
@@ -106,7 +106,7 @@ public class ServerCommunication extends Thread {
 					write("ping");
 				}
 				if(lastPingReceived>=TIMEOUT_READ){
-					forceDisconnect();;
+					forceDisconnect();
 					break;
 				}
 			}
@@ -182,10 +182,10 @@ public class ServerCommunication extends Thread {
 	private synchronized String read() {
 		String r = null;
 		try{
-			if(wifi_socket==null || wifi_socket.isClosed() || in == null)
+			if(in_buffered==null || input==null)
 				throw new IOException("socket chiuso");
 			if (input.available() > 0) {
-				r = in.readLine();
+				r = in_buffered.readLine();
 				Log.d("CommunicationR", r);
 			}
 		}
@@ -213,6 +213,7 @@ public class ServerCommunication extends Thread {
 		disconnect(false);
 	}
 	public void disconnect(boolean eseguiListener) {
+		System.err.println("ESEGUO DISCONNESSIONE SOCKET");
 		if(eseguiListener){
 			if(wifi_socket!=null && !wifi_socket.isClosed())
 				write("disconnect");
@@ -228,10 +229,10 @@ public class ServerCommunication extends Thread {
 		
 		interrupt();
 		
-		if (in != null){
+		if (in_buffered != null){
 			try {
-				in.close();
-				in = null;
+				in_buffered.close();
+				in_buffered = null;
 			}
 			catch (IOException e) {
 				e.printStackTrace();

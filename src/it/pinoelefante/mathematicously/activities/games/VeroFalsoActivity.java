@@ -1,5 +1,6 @@
 package it.pinoelefante.mathematicously.activities.games;
 
+import it.pinoelefante.mathematicously.R;
 import it.pinoelefante.mathematicously.activities.FinePartitaActivity;
 import it.pinoelefante.mathematicously.constants.Difficolta;
 import it.pinoelefante.mathematicously.constants.Giochi;
@@ -11,19 +12,31 @@ import it.pinoelefante.mathematicously.utilities.timer.Timer;
 import it.pinoelefante.mathematicously.utilities.timer.TimerListener;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
 
 public class VeroFalsoActivity extends TwoAnswerActivity {
 	protected final static int NUMERO_DOMANDE = 10;
 	private final static int DURATA_DOMANDA = 15;
 	protected Timer			timer;
-
+	private Animation		ani;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		true_false_game = true;
 		tipo_partita = Giochi.TIPO_TRUE_FALSE;
 		disegna();
+		ani = new AlphaAnimation(0.0f, 1.0f);
+		ani.setAnimationListener(new AnimationListener() {
+			public void onAnimationEnd(Animation animation) {
+				overlay.setText("");
+			}
+			public void onAnimationStart(Animation animation) {}
+			public void onAnimationRepeat(Animation animation) {}
+		});
+		ani.setDuration(1000L);
 		progress.setMax(DURATA_DOMANDA * 1000);
 		avviaGioco();
 	}
@@ -100,11 +113,13 @@ public class VeroFalsoActivity extends TwoAnswerActivity {
 	}
 
 	public void rispostaEsatta(Domanda d) {
-		Toast.makeText(getApplicationContext(), "Risposta esatta", Toast.LENGTH_SHORT).show();
+		showOverlay(ani,getString(R.string.risposta_esatta));
+		//Toast.makeText(getApplicationContext(), "Risposta esatta", Toast.LENGTH_SHORT).show();
 	}
 
 	public void rispostaErrata(Domanda d) {
-		Toast.makeText(getApplicationContext(), "Risposta errata", Toast.LENGTH_SHORT).show();
+		showOverlay(ani,getString(R.string.risposta_errata));
+		//Toast.makeText(getApplicationContext(), "Risposta errata", Toast.LENGTH_SHORT).show();
 	}
 	private TimerListener listener;
 	private TimerListener getTimerListener(){

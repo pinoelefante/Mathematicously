@@ -19,6 +19,7 @@ import it.pinoelefante.mycustomviews.PButton;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
@@ -91,13 +92,19 @@ public class ClientLobbyBluetooth extends PActivity {
 		onBackPressed();
 	}
 	private void avviaDispositivoBT(){
-		IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-		registerReceiver(btFoundDevice, filter);
 		if(!btAdp.isEnabled()){
 			abilitaBluetooth();
 		}
 		registraBroadcast();
+		loadPairedDevices();
 		btAdp.startDiscovery();
+	}
+	private void loadPairedDevices(){
+		Set<BluetoothDevice> paired = btAdp.getBondedDevices();
+		for(BluetoothDevice d: paired){
+			mac_device.put(d.getAddress(), d);
+			list_devices.add(d.getName()+"\n"+d.getAddress());
+		}
 	}
 	private void abilitaBluetooth() {
 		Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
@@ -108,7 +115,7 @@ public class ClientLobbyBluetooth extends PActivity {
 		super.onActivityResult(requestCode, resultCode, data);
 		if(requestCode == REQUEST_ENABLE_BT){
 			if(resultCode == RESULT_OK){
-				
+				btAdp.startDiscovery();
 			}
 			else {
 				Toast.makeText(getApplicationContext(), "operazione cancellata - attiva bluetooth", Toast.LENGTH_SHORT).show();
@@ -124,6 +131,7 @@ public class ClientLobbyBluetooth extends PActivity {
 					case -1:
 						break;
 					case BluetoothAdapter.STATE_ON:
+						btAdp.startDiscovery();
 						break;
 					case BluetoothAdapter.STATE_OFF:
 						Toast.makeText(getApplicationContext(), "bluetooth off", Toast.LENGTH_SHORT).show();
@@ -135,6 +143,9 @@ public class ClientLobbyBluetooth extends PActivity {
 			}
 		};
 		registerReceiver(bt_state, new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED));
+		
+		IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+		registerReceiver(btFoundDevice, filter);
 	}
 	public Map<String,Listener> getConnectionListener(){
 		Map<String,Listener> lists = new HashMap<String,Listener>();
@@ -259,10 +270,8 @@ public class ClientLobbyBluetooth extends PActivity {
 	    }
 	};
 	protected void onDestroy() {
-		ServerCommunication comm = ServerCommunication.getInstance();
-		if(comm!=null)
-			comm.forceDisconnect();
 		unregisterReceiver(btFoundDevice);
+		unregisterReceiver(bt_state);
 		super.onDestroy();
 	};
 	private void connectToMac(final String mac_address){
@@ -276,15 +285,18 @@ public class ClientLobbyBluetooth extends PActivity {
 			edit.putString("nickname", nickname);
 			edit.commit();
 		}
-		new Thread(){
+		class ThreadClientConnection extends Thread {
 			public void run() {
 				showToast("Connessione a: "+mac_address);
 				BluetoothDevice device = mac_device.get(mac_address);
 				try {
 					BluetoothSocket socket = device.createRfcommSocketToServiceRecord(ServerBluetooth.ITU_GENERATED_UUID);
+					btAdp.cancelDiscovery();
+					socket.connect();
 					showToast("Connessione a: "+mac_address+" avvenuta");
 					PartialListenerContainer c = new PartialListenerContainer();
 					c.addListener(getConnectionListener());
+					
 					ServerCommunication.instance(socket, c);
 				}
 				catch (IOException e) {
@@ -299,7 +311,9 @@ public class ClientLobbyBluetooth extends PActivity {
 					}
 				});
 			}
-		}.start();
+		}
+		Thread con = new ThreadClientConnection();
+		con.start();
 	}
 	@Override
 	public void onBackPressed() {

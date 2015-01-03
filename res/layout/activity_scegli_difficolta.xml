@@ -1,17 +1,50 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ScrollView1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="${relativePackage}.${activityClass}" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Scegli Difficoltà"
+        android:textSize="32sp" />
 
     <LinearLayout
         android:id="@+id/layout_scegli_difficolta"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="10dp" >
+        android:padding="10dp"
+        android:gravity="center_horizontal" >
+
+        <RatingBar
+            android:id="@+id/difficoltaProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:isIndicator="false"
+            android:numStars="4"
+            android:rating="2"
+            android:stepSize="1" />
+
+        <TextView
+            android:id="@+id/difficoltaText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/difficolta_medio"
+            android:textSize="24sp"
+            android:layout_marginTop="10dp" />
+
+        <Button
+            android:id="@+id/btnScegliDifficolta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scegli"
+            android:onClick="scegliDifficolta"
+            android:layout_marginTop="10dp" />
 
     </LinearLayout>
 
-</ScrollView>
+</LinearLayout>

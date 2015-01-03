@@ -8,23 +8,28 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 public abstract class TwoAnswerActivity extends GameActivity {
 	protected boolean true_false_game = false;
 	protected boolean cliccabile = true;
 	protected Vibrator vibrator;
 	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 		setContentView(R.layout.activity_true_false);
+		vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 	}
 	
 	protected PButton domanda, risposta1, risposta2;
 	protected ProgressBar progress;
+	protected TextView overlay;
 	protected void disegna(){
+		overlay = (TextView) findViewById(R.id.overlayTF);
 		domanda = (PButton) findViewById(R.id.true_false_domanda);
 		domanda.setSizePerc(100, 30, PLayoutParams.RELATIVELAYOUT);
 		risposta1 = (PButton) findViewById(R.id.risposta_true);
@@ -107,5 +112,9 @@ public abstract class TwoAnswerActivity extends GameActivity {
 			risposta1.setBackgroundResource(R.drawable.style_bottone_normale);
 			risposta2.setBackgroundResource(R.drawable.style_bottone_normale);
 		}
+	}
+	protected void showOverlay(Animation ani, String text) {
+		overlay.startAnimation(ani);
+		overlay.setText(text);
 	}
 }

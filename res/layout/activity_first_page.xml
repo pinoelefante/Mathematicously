@@ -87,7 +87,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="@string/about" 
-            android:onClick="goToInfo"/>
+            android:onClick="goToInfo" 
+            android:drawableLeft="@drawable/info"/>
 
     </it.pinoelefante.mycustomviews.PLinearLayout>
 

@@ -31,12 +31,11 @@ public class ServerBluetooth extends Server {
 			ServerCommunication.instance(clientSocket, list);
 			comm = ServerCommunication.getInstance();
 			comm.setServer(true);
-			ssocket.close();
+			//ssocket.close();
 		}
 		catch (IOException e) {
 			e.printStackTrace();
 		}
-		closed = true;
 	}
 	@Override
 	public void avviaServer() {

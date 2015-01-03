@@ -1,7 +1,10 @@
 package it.pinoelefante.mathematicously.activities.multiplayer;
 
 import it.pinoelefante.mathematicously.R;
+import it.pinoelefante.mathematicously.activities.FirstPageActivity;
 import it.pinoelefante.mathematicously.constants.Giochi;
+import it.pinoelefante.mathematicously.server.ServerCommunication;
+import it.pinoelefante.mathematicously.server.ServerWiFi;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -40,6 +43,18 @@ public class ScegliGiocoMultiplayerActivity extends Activity {
 		}
 		Intent i = new Intent(getApplicationContext(), ScegliDifficoltaMultiActivity.class);
 		i.putExtra("tipoGioco", tipoGioco);
+		startActivity(i);
+	}
+	@Override
+	public void onBackPressed() {
+		if(ServerWiFi.getInstance()!=null)
+			ServerWiFi.getInstance().stopServer();
+		ServerCommunication comm = ServerCommunication.getInstance();
+		if(comm!=null){
+			comm.disconnect(true);
+		}
+		Intent i = new Intent(getApplicationContext(), FirstPageActivity.class);
+		i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		startActivity(i);
 	}
 }

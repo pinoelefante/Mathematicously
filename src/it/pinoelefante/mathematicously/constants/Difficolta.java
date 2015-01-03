@@ -1,5 +1,5 @@
 package it.pinoelefante.mathematicously.constants;
 
 public class Difficolta {
-	public static final int FACILE = 0, MEDIO = 1, DIFFICILE = 2, CASUALE = 3;
+	public static final int FACILE = 1, MEDIO = 2, DIFFICILE = 3, CASUALE = 4;
 }
