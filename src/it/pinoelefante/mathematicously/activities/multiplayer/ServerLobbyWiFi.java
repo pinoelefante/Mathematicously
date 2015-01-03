@@ -117,10 +117,6 @@ public class ServerLobbyWiFi extends PActivity {
 			server.stopServer();
 		if(connection!=null)
 			connection.interrupt();
-		ServerCommunication comm = ServerCommunication.getInstance();
-		if(comm!=null){
-			comm.disconnect(true);
-		}
 	}
 	private String getWifiIP(){
 	    int ipAddress = wifiManager.getConnectionInfo().getIpAddress();

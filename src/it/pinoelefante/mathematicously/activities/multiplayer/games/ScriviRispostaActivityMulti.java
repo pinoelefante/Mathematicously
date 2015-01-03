@@ -14,7 +14,7 @@ public class ScriviRispostaActivityMulti extends ScriviRispostaActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		comm = ServerCommunication.getInstance();
-		comm.addListeners(getGameListener());
+		comm.addListeners(getOnlineGameListener());
 		super.onCreate(savedInstanceState);
 		tipo_partita = Giochi.TIPO_SCRIVI_LA_RISPOSTA_MULTI;
 		context = ScriviRispostaActivityMulti.this;

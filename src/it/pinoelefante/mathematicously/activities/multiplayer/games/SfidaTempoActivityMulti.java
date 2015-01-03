@@ -14,7 +14,7 @@ public class SfidaTempoActivityMulti extends SfidaTempoActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		comm = ServerCommunication.getInstance();
-		comm.addListeners(getGameListener());
+		comm.addListeners(getOnlineGameListener());
 		super.onCreate(savedInstanceState);
 		tipo_partita = Giochi.TIPO_SFIDA_CONTRO_IL_TEMPO_MULTI;
 		context = SfidaTempoActivityMulti.this;

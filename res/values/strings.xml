@@ -26,7 +26,7 @@
     <string name="risposta_errata">Risposta errata!</string>
     <string name="bluetooth_non_disponibile">Per poter giocare in multiplayer è necessario un dispositivo che abbia il Bluetooth.\nPer giocare su internet con i tuoi amici, scarica Math Challenger.</string>
     <string name="scarica_mathchallenger">Scarica Math Challenger</string>
-    <string name="multi_host">Crea partita</string>
+    <string name="multi_host">Ospita</string>
     <string name="multi_guest">Unisciti</string>
     <string name="indietro">Indietro</string>
     <string name="twitter_text">Ho totalizzato %1$d punti rispondendo correttamente a %2$d domande su %3$d</string>

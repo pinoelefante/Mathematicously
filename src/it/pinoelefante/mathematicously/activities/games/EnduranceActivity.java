@@ -20,10 +20,8 @@ import android.widget.TextView;
 
 public class EnduranceActivity extends FourAnswerActivity {
 	private int			  livelloUtente;
-	protected Timer			timer;
 	private final static int DURATA_PARTITA   = 60;
 	private final static int LIVELLO_INIZIALE = 3;
-
 	private TextView		 overlayText;
 	private Animation		ani;
 

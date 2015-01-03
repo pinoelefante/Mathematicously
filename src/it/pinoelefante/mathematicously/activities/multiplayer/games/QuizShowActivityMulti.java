@@ -14,7 +14,7 @@ public class QuizShowActivityMulti extends QuizShowActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		comm = ServerCommunication.getInstance();
-		comm.addListeners(getGameListener());
+		comm.addListeners(getOnlineGameListener());
 		super.onCreate(savedInstanceState);
 		tipo_partita = Giochi.TIPO_QUIZ_SHOW_MULTI;
 		context = QuizShowActivityMulti.this;

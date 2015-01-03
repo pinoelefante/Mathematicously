@@ -2,6 +2,7 @@ package it.pinoelefante.mathematicously.activities.games;
 
 import it.pinoelefante.mathematicously.R;
 import it.pinoelefante.mathematicously.generator.Domanda;
+import it.pinoelefante.mathematicously.utilities.timer.Timer;
 import it.pinoelefante.mycustomviews.PButton;
 import it.pinoelefante.mycustomviews.PLayoutParams;
 import android.content.Context;
@@ -16,7 +17,7 @@ public abstract class TwoAnswerActivity extends GameActivity {
 	protected boolean true_false_game = false;
 	protected boolean cliccabile = true;
 	protected Vibrator vibrator;
-	
+	protected Timer	timer;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -116,5 +117,15 @@ public abstract class TwoAnswerActivity extends GameActivity {
 	protected void showOverlay(Animation ani, String text) {
 		overlay.startAnimation(ani);
 		overlay.setText(text);
+	}
+	@Override
+	protected void onPause() {
+		timer.setPause(true);
+		super.onPause();
+	}
+	@Override
+	protected void onResume() {
+		timer.setPause(false);
+		super.onResume();
 	}
 }

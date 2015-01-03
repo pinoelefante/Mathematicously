@@ -16,7 +16,6 @@ import android.os.Bundle;
 public class QuizShowActivity extends FourAnswerActivity {
 	protected final static int NUMERO_DOMANDE = 10;
 	private final static int DURATA_DOMANDA = 15;
-	protected Timer			timer;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

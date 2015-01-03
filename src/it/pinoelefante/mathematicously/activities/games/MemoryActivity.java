@@ -18,7 +18,6 @@ public class MemoryActivity extends FourAnswerActivity {
 	protected final static int NUMERO_DOMANDE = 5;
 	private final static int DURATA_DOMANDA = 15;
 	private final static int DURATA_VISUALIZZAZIONE_RISPOSTE = 3;
-	protected Timer			timer;
 	private Timer timerHide;
 
 	@Override
@@ -210,5 +209,15 @@ public class MemoryActivity extends FourAnswerActivity {
 	@Override
 	public float getResponseTime() {
 		return DURATA_DOMANDA - timer.getCurrentTimeF();
+	}
+	@Override
+	protected void onPause() {
+		timerHide.setPause(true);
+		super.onPause();
+	}
+	@Override
+	protected void onResume() {
+		timerHide.setPause(false);
+		super.onResume();
 	}
 }

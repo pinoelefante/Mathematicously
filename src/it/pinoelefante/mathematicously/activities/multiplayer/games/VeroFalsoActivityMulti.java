@@ -14,7 +14,7 @@ public class VeroFalsoActivityMulti extends VeroFalsoActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		comm = ServerCommunication.getInstance();
-		comm.addListeners(getGameListener());
+		comm.addListeners(getOnlineGameListener());
 		super.onCreate(savedInstanceState);
 		tipo_partita = Giochi.TIPO_TRUE_FALSE_MULTI;
 		context = VeroFalsoActivityMulti.this;
@@ -35,7 +35,6 @@ public class VeroFalsoActivityMulti extends VeroFalsoActivity {
 			while (n_domande >= domande.size()) {
 				try {
 					Thread.sleep(100);
-					comm.write("getDomanda " + n_domande);
 				}
 				catch (InterruptedException e) {
 					e.printStackTrace();

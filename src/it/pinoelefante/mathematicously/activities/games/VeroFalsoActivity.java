@@ -19,7 +19,6 @@ import android.view.animation.Animation.AnimationListener;
 public class VeroFalsoActivity extends TwoAnswerActivity {
 	protected final static int NUMERO_DOMANDE = 10;
 	private final static int DURATA_DOMANDA = 15;
-	protected Timer			timer;
 	private Animation		ani;
 	
 	@Override

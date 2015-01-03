@@ -41,26 +41,27 @@ public abstract class GameActivity extends Activity {
 		rand = new Random(System.currentTimeMillis());
 	}
 	
-	protected Map<String,Listener> getGameListener() {
+	protected Map<String,Listener> getOnlineGameListener() {
 		Map<String,Listener> map = new HashMap<String, Listener>();
 		Listener prossimaDomanda = new Listener() {
 			public void execute(String... p) {
 				Integer n = Integer.parseInt(p[0]);
+				System.err.println("getDomanda "+n);
 				Domanda d = null;
 				while(domande==null){
 					try {
-					Thread.sleep(50);
+						Thread.sleep(50);
 					}
 					catch (InterruptedException e) {
 						e.printStackTrace();
 					}
 				}
-				if (n>=domande.size()) {
-					d = generaDomanda();
-					domande.add(n, d);
+				if (n<domande.size()) {
+					d = domande.get(n);
 				}
 				else {
-					d = domande.get(n);
+					d = generaDomanda();
+					domande.add(n, d);
 				}
 				ServerCommunication.getInstance().write("domandaResponse " + d.getDomanda() + " " + d.getDifficolta() + " " + d.getRisposta(0) + " " + d.getRisposta(1) + " " + d.getRisposta(2) + " " + d.getRisposta(3));
 			}
@@ -232,16 +233,10 @@ public abstract class GameActivity extends Activity {
 	}
 	
 	public abstract Domanda generaDomanda();
-	
 	public abstract void pausaTimer();
-
 	public abstract void scriviDomanda(Domanda d);
-
 	public abstract boolean timerIsInPause();
-
 	public abstract void rispostaEsatta(Domanda d);
-
 	public abstract void rispostaErrata(Domanda d);
-	
 	public abstract float getResponseTime();
 }

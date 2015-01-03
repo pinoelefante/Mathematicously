@@ -236,4 +236,14 @@ public class ScriviRispostaActivity extends GameActivity {
 		Log.d("time_spent", time+"");
 		return time;
 	}
+	@Override
+	protected void onPause() {
+		timer.setPause(true);
+		super.onPause();
+	}
+	@Override
+	protected void onResume() {
+		timer.setPause(false);
+		super.onResume();
+	}
 }

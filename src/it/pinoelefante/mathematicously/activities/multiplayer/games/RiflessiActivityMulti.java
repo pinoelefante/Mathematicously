@@ -14,7 +14,7 @@ public class RiflessiActivityMulti extends RiflessiActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		comm = ServerCommunication.getInstance();
-		comm.addListeners(getGameListener());
+		comm.addListeners(getOnlineGameListener());
 		super.onCreate(savedInstanceState);
 		tipo_partita = Giochi.TIPO_RIFLESSI_MULTI;
 		context = RiflessiActivityMulti.this;

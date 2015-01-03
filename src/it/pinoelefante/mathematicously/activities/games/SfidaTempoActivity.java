@@ -15,7 +15,6 @@ import android.os.Bundle;
 import android.util.Log;
 
 public class SfidaTempoActivity extends FourAnswerActivity {
-	protected Timer			timer;
 	private final static int DURATA_PARTITA = 60;
 
 	@Override

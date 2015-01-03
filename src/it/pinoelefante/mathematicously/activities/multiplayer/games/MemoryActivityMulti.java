@@ -14,7 +14,7 @@ public class MemoryActivityMulti extends MemoryActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		comm = ServerCommunication.getInstance();
-		comm.addListeners(getGameListener());
+		comm.addListeners(getOnlineGameListener());
 		super.onCreate(savedInstanceState);
 		tipo_partita = Giochi.TIPO_MEMORY_MULTI;
 		context = MemoryActivityMulti.this;

@@ -14,7 +14,7 @@ public class EnduranceActivityMulti extends EnduranceActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		comm = ServerCommunication.getInstance();
-		comm.addListeners(getGameListener());
+		comm.addListeners(getOnlineGameListener());
 		super.onCreate(savedInstanceState);
 		tipo_partita = Giochi.TIPO_ENDURANCE_MULTI;
 		context = EnduranceActivityMulti.this;
